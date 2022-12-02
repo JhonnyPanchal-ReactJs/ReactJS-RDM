@@ -4,6 +4,8 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Login from './screen/Login';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../node_modules/bootstrap-icons/font/bootstrap-icons.css';
+import './scss/main.scss';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

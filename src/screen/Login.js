@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import TextInput from '../Components/common/TextInput/TextInput'
-import './css/LoginStyle.css'
 const Login = () => {
   const [input, setInput] = useState({ username: "", password: "" });
   const [error, setError] = useState(false);
@@ -18,21 +17,25 @@ const Login = () => {
   }
   return (
     <div className='form-container'>
-      <form className='form' onSubmit={handleOnSubmit}>
+      <form className='form-layout' onSubmit={handleOnSubmit}>
       <TextInput
         id="username"
         type="text"
         name="username"
         value={input.username}
         label="Username"
-        onChange={handleOnChange} />
+        placeholder="Username"
+        onChange={handleOnChange}
+        iconClass="bi bi-x-lg" />
 
       <TextInput
         id="password"
-        type="text"
+        type="password"
         name="password"
         value={input.password}
         label="Password"
+        placeholder="Password"
+        iconClass="bi bi-eye"
         required={"PAssword is required"}
         onChange={handleOnChange} />
        <button type="submit">Login</button>
