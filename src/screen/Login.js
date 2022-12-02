@@ -1,46 +1,46 @@
-import "./css/LoginStyle.css"
-import image from "../images/rdm.png";
+import { useState } from 'react'
+import TextInput from '../Components/common/TextInput/TextInput'
+import './css/LoginStyle.css'
+const Login = () => {
+  const [input, setInput] = useState({ username: "", password: "" });
+  const [error, setError] = useState(false);
+  const [validation, setValidation] = useState({
+    username: '',
+    password: '',
+  });
+  const handleOnChange = (e) => {
+    const { name, value } = e.target;
+    setInput({ ...input, [name]: value })
+  }
+  const handleOnSubmit = (e) => {
+  e.preventDefault();
 
-function Login() {
+  }
   return (
-      <div className="backgroundimage" >
-        <img src={image} alt="Logo" />
-        <div className="Auth-form-container">
+    <div className='form-container'>
+      <form className='form' onSubmit={handleOnSubmit}>
+      <TextInput
+        id="username"
+        type="text"
+        name="username"
+        value={input.username}
+        label="Username"
+        onChange={handleOnChange} />
 
-          <form className="Auth-form">
-            <div className="Auth-form-content">
-              <h3 className="Auth-form-title">Log In</h3>
-              <div className="form-group mt-3">
-                <label>Email address</label>
-                <input
-                  type="email"
-                  className="form-control mt-1"
-                  placeholder="Enter email"
-                />
-              </div>
-              <div className="form-group mt-3">
-                <label>Password</label>
-                <input
-                  type="password"
-                  className="form-control mt-1"
-                  placeholder="Enter password"
-                />
-              </div>
-              <div className="d-grid gap-2 mt-3">
-                <button type="submit" className="btn btn-primary">
-                  Submit
-                </button>
-              </div>
-              <p className="forgot-password text-right mt-2">
-                Forgot
-                 <a href="#">password?</a>
-              </p>
-            </div>
-          </form>
-        </div>
-      </div>
+      <TextInput
+        id="password"
+        type="text"
+        name="password"
+        value={input.password}
+        label="Password"
+        required={"PAssword is required"}
+        onChange={handleOnChange} />
+       <button type="submit">Login</button>
+    </form>
+    {error && <div>Error </div>}
 
-  );
+    </div >
+  )
 }
 
-export default Login;
+export default Login
