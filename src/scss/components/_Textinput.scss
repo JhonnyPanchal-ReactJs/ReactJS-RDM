@@ -2,7 +2,7 @@
 
 // Form Layout
 .form-layout{
-    margin: 30px;
+    margin: 0 30px;
 
     // Form Group
     .form-group{
@@ -11,12 +11,13 @@
 
         // Input Field
         .input-field{
-            background-color: white;
+            background-color: variables.$body-bg-dark;
             display: block;
             outline: none;
             font-weight: normal;
-            border-radius: 8px;
-            color: #202124;
+            border-radius: variables.$base-border-radius;
+            // color: #202124;
+            color: variables.$body-bg-light;
             font-size: 1rem;
             height: 54px;
             width: 100%;
@@ -29,16 +30,16 @@
 
             // Change border color and caret color when input is focused
             &:focus{
-                border-color: variables.$base-blue;
+                border-color: variables.$body-bg-light;
                 border-width: 2px;
                 transition: none;
-                caret-color: variables.$base-blue;
+                caret-color: variables.$body-bg-light;
 
                 // Change label position when input is focused
                 & + label{
                     transform: translateY(-27px) scale(.8);
-                    background-color: #fff;
-                    color: variables.$base-blue;
+                    background-color: variables.$body-bg-dark;
+                    color: variables.$body-bg-light;
                     padding: 0 8px;
                     z-index: 1;
                 }
@@ -54,7 +55,7 @@
             // Input has any value then show placeholder above the input
             &:not(:placeholder-shown) + label{
                 transform: translateY(-27px) scale(.8);
-                background-color: #fff;
+                background-color: variables.$body-bg-dark;
                 padding: 0 8px;
                 z-index: 1;
             }
@@ -72,11 +73,12 @@
             // Icon size, position and alignment properties ( opacity will hide the icon by default )
             & + label + .bi{
                 position: absolute;
-                top: 13px;
+                top: 11px;
                 right: 18px;
                 z-index: 2;
                 font-size: 1.3rem;
                 opacity: 0;
+                color: variables.$white;
 
                 &:hover{
                     cursor: pointer;
@@ -95,12 +97,12 @@
             top: 18px;
             left: 8px;
             color: #5d5d5d;
-            font-size: 14px;
+            font-size: 0.938rem;
             transform: rotateY(15px);
             padding: 0 8px;
             cursor: text;
             z-index: -1;
-            letter-spacing: 0.4;
+            letter-spacing: 1px;
             text-transform: capitalize;
             font-weight: 500;
             transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1), opacity 150ms cubic-bezier(0.4, 0, 0.2, 1);
