@@ -1,21 +1,39 @@
-import { useState } from 'react'
+import { useState,useEffect, useLayoutEffect } from 'react'
 import TextInput from '../Components/common/TextInput/TextInput'
+import Button from '../Components/common/Button/Button'
+
 import './css/LoginStyle.css'
+import Card from '../Components/common/Card/Card'
+
+
 const Login = () => {
-  const [input, setInput] = useState({ username: "", password: "" });
-  const [error, setError] = useState(false);
-  const [validation, setValidation] = useState({
-    username: '',
-    password: '',
-  });
+  const initialState = {
+    username: "",
+    password: "",
+};
+  const [input, setInput] = useState(initialState);
+  const [ erroremail, setErrorEmail ] = useState("");
+  const [ errorpassword, setErrorPassword ] = useState("");
+
+
   const handleOnChange = (e) => {
     const { name, value } = e.target;
     setInput({ ...input, [name]: value })
+    setErrorEmail("")
+    setErrorPassword("")
+    
   }
   const handleOnSubmit = (e) => {
-  e.preventDefault();
-
+    e.preventDefault();
+    if (input.username === '') {
+      setErrorEmail("Email Address is required.");
+    } 
+    if (input.password === '') {
+      setErrorPassword("Password is required.");
+    } 
   }
+
+  
   return (
     <div className='form-container'>
       <form className='form' onSubmit={handleOnSubmit}>
@@ -25,7 +43,9 @@ const Login = () => {
         name="username"
         value={input.username}
         label="Username"
-        onChange={handleOnChange} />
+        erroremail={erroremail}
+        onChange={handleOnChange} /><br/>
+
 
       <TextInput
         id="password"
@@ -33,14 +53,19 @@ const Login = () => {
         name="password"
         value={input.password}
         label="Password"
-        required={"PAssword is required"}
+        errorpassword={errorpassword}
         onChange={handleOnChange} />
-       <button type="submit">Login</button>
+          <Button
+          color={'lightblue'}
+          text={'Submit'}
+        />
+       {/* <button type="submit">Login</button> */}
     </form>
-    {error && <div>Error </div>}
+    {/* <Card title="IGNOREEEEE"description="We are learning please ignoreuashdkasdhksah"/> */}
 
     </div >
   )
 }
 
 export default Login
+

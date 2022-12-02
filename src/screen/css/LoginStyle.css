@@ -25,7 +25,7 @@ button {
   outline: 0;
   border: 0;
   cursor: pointer;
-  background: radial-gradient(100% 100% at 100% 0%, #89e5ff 0%, #5468ff 100%);
+  /* //background: radial-gradient(100% 100% at 100% 0%, #89e5ff 0%, #5468ff 100%); */
   border-radius: 50px !important;
   color: #fff;
   height: 40px;
