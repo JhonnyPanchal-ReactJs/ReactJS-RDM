@@ -21,38 +21,42 @@ const Login = () => {
     setInput({ ...input, [name]: value })
     setErrorEmail("")
     setErrorPassword("")
-    
+
   }
   const handleOnSubmit = (e) => {
     e.preventDefault();
     if (input.username === '') {
       setErrorEmail("Email Address is required.");
-    } 
+    }
     if (input.password === '') {
       setErrorPassword("Password is required.");
-    } 
+    }
   }
 
-  
+
   return (
     <div className='form-container'>
-      <form className='form' onSubmit={handleOnSubmit}>
+      <form className='form-layout' onSubmit={handleOnSubmit}>
       <TextInput
         id="username"
         type="text"
         name="username"
         value={input.username}
         label="Username"
+        placeholder="Username"
+        iconClass="bi bi-x-lg"
         erroremail={erroremail}
-        onChange={handleOnChange} /><br/>
+        onChange={handleOnChange} />
 
 
       <TextInput
         id="password"
-        type="text"
+        type="password"
         name="password"
         value={input.password}
         label="Password"
+        placeholder="Password"
+        iconClass="bi bi-eye"
         errorpassword={errorpassword}
         onChange={handleOnChange} />
           <Button

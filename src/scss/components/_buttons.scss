@@ -1,0 +1,21 @@
+@use "../utilities/variables";
+
+/* Button Style come from Button.scss */
+button {
+    font-size: 1rem;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    // background: radial-gradient(100% 100% at 100% 0%, #89e5ff 0%, #5468ff 100%);
+    background: #3A10E5;
+    border-radius: variables.$base-border-radius;
+    color: #fff;
+    padding: variables.$button-padding;
+    transition: transform 0.15s ease;
+    font-weight: 500;
+
+    // Button style on hover
+    &:hover{
+        transform: translateY(-1.6px);
+    }
+}

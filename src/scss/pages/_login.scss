@@ -1,0 +1,13 @@
+// set vertical and horizontal center of the screen
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+
+    // control the width of the input elements
+    .form-layout{
+        width: 35%;
+    }
+}

@@ -1,0 +1,6 @@
+@use "../utilities/variables";
+
+// Reset / normalize
+body{
+    background-color: variables.$body-bg-dark;
+}
