@@ -2,7 +2,6 @@ import { useState,useEffect, useLayoutEffect } from 'react'
 import TextInput from '../Components/common/TextInput/TextInput'
 import Button from '../Components/common/Button/Button'
 
-import './css/LoginStyle.css'
 import Card from '../Components/common/Card/Card'
 
 
@@ -60,7 +59,7 @@ const Login = () => {
         errorpassword={errorpassword}
         onChange={handleOnChange} />
           <Button
-          color={'lightblue'}
+          color={'orangered'}
           text={'Submit'}
         />
        {/* <button type="submit">Login</button> */}
