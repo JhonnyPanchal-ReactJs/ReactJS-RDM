@@ -59,7 +59,8 @@ const Login = () => {
         errorpassword={errorpassword}
         onChange={handleOnChange} />
           <Button
-          color={'orangered'}
+          bgColor={'royalblue'}
+          color={'white'}
           text={'Submit'}
         />
        {/* <button type="submit">Login</button> */}
