@@ -18,10 +18,10 @@ const TextInput = ({ id, name, value, type, label, onChange,required,placeholder
                 <label htmlFor={id}>
                     {label}
                 </label>
-                <i className={iconClass}></i>
-                {erroremail && <div variant="danger">{erroremail}
+                {/* <i onclick={(e) => onclick(e)} className={iconClass}></i> */}
+                {erroremail && <div style={{color:'red'}}variant="danger">{erroremail}
                 </div>}
-                {errorpassword && <div variant="danger">{errorpassword}
+                {errorpassword && <div style={{color:'red'}} variant="danger">{errorpassword}
                 </div>}
             </div>
     )

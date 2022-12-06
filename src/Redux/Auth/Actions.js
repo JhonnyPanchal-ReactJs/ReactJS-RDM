@@ -5,11 +5,13 @@ export const ACTION_TYPES = {
 };
 
 export const loginUser = (data) => {
-    const accessToken = data?.accessToken;
+    const accessToken = data?.token;
+    const refreshToken = data?.refreshtoken
     delete data?.accessToken;
     localStorage.setItem('isLoggedIn', true);
     localStorage.setItem('accessToken', accessToken);
     localStorage.setItem('userInfo', JSON.stringify(data));
+    localStorage.setItem('refresh_token',refreshToken)
     return {
         type: ACTION_TYPES.LOGIN_USER,
         userInfo: data,

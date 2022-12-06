@@ -4,12 +4,13 @@ import { Routes as RoutesSwitch, Route, useNavigate } from 'react-router-dom';
 // ROUTING COMPONENTS
 import ProtectedRoute from './ProtectedRoute';
 import RoutesList from './RoutesList';
-import {URL_LOGIN} from '../Helpers/Paths';
+import {URL_HOME_PAGE, URL_LOGIN} from '../Helpers/Paths';
 import Login  from '../screen/Login';
 import { useSelector } from 'react-redux';
 
 const BEFORE_LOGIN_ACCESSIBLE_PATHS = [
     URL_LOGIN,
+    URL_HOME_PAGE
 ];
 
 function Routes() {
@@ -19,6 +20,11 @@ function Routes() {
 
     useEffect(() => {
         if (isLoggedIn && BEFORE_LOGIN_ACCESSIBLE_PATHS?.includes(window?.location?.pathname)) {
+            if (userInfo) {
+                navigate(URL_HOME_PAGE);
+            } else {
+                navigate(URL_LOGIN);
+            }
         }
     }, [isLoggedIn, navigate, userInfo]);
 

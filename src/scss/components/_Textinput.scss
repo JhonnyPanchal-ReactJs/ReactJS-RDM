@@ -45,6 +45,13 @@
                 }
             }
 
+            input:-webkit-autofill,
+            input:-webkit-autofill:hover, 
+            input:-webkit-autofill:focus, 
+            input:-webkit-autofill:active{
+                background-color: variables.$body-bg-dark !important;
+            }
+
             // Placeholder color to transparent to hide
             &::-webkit-input-placeholder,
             &::-moz-input-placeholder,
@@ -108,4 +115,27 @@
             transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1), opacity 150ms cubic-bezier(0.4, 0, 0.2, 1);
         }
     }
+}
+
+.textbox-with-icon{
+    position: relative;
+
+    .input-field{
+        position: relative;
+    }
+
+    i{
+        position: absolute;
+        top: 11px;
+        right: 18px;
+        z-index: 2;
+        font-size: 1.3rem;
+        // opacity: 0;
+        color: variables.$white;
+    
+        &:hover{
+            cursor: pointer;
+        }
+    }
+
 }
