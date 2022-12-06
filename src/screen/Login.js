@@ -1,16 +1,16 @@
-	
+
 	import { useState,useMemo } from 'react'
   import TextInput from '../Components/common/TextInput/TextInput'
   import Button from '../Components/common/Button/Button'
   import {
     URL_HOME_PAGE,API_URL
   } from '../Helpers/Paths'
-  import './css/LoginStyle.css'
+  // import './css/LoginStyle.css'
   import { useNavigate } from 'react-router-dom';
   import CODES from '../Helpers/StatusCodes';
   import Api from '../Helpers/ApiHandler';
   import { loginUser } from '../Redux/Auth/Actions';
-  import { useDispatch } from 'react-redux';  
+  import { useDispatch } from 'react-redux';
   import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
 
@@ -18,7 +18,7 @@
   const Login = () => {
     const navigate = useNavigate();
     const API = useMemo(() => new Api(), []);
-  
+
     const initialState = {
       username: "",
       password: "",
@@ -27,14 +27,14 @@
     const [ erroremail, setErrorEmail ] = useState("");
     const [ errorpassword, setErrorPassword ] = useState("");
     const dispatch = useDispatch();
-  
-  
+
+
     const handleOnChange = (e) => {
       const { name, value } = e.target;
       setInput({ ...input, [name]: value })
       setErrorEmail("")
       setErrorPassword("")
-  
+
     }
     const handleOnSubmit = async (e) => {
       e.preventDefault();
@@ -48,14 +48,14 @@
         let reqBody = {
           app: "IndygoBeta",
           email: "jhonny.panchal@kemsys.com",
-          password: "Admin@12345",
+          password: "Admin@123456666",
           environment:"TEST",
           rememberme:"false"
         };
         let response = await API.post(API_URL.LOG_IN, {
           data: reqBody,
       });
-  
+
         if (response?.status === CODES.SUCCESS) {
             dispatch(loginUser(response?.data?.data));
             toast.success("Login Success")
@@ -69,42 +69,42 @@
             error?.response?.status === CODES.PRECONDITION_FAILED ||
             error.response?.status === CODES.BAD_REQUEST
         ) {
-          
+
           toast.error("Wrong Credentials")
           //  dispatch(showToast(error?.response?.data?.message, 'error'));
            // dispatch(showToast('Successfully added your interests', 'success'));
-  
+
         }
     }
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
- 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
     return (
@@ -120,8 +120,8 @@
           iconClass="bi bi-x-lg"
           erroremail={erroremail}
           onChange={handleOnChange} />
-  
-  
+
+
         <TextInput
           id="password"
           type="password"
@@ -140,10 +140,10 @@
       </form>
       {/* <Card title="IGNOREEEEE"description="We are learning please ignoreuashdkasdhksah"/> */}
       <ToastContainer
-       
+
       />
       </div >
     )
   }
-  
+
   export default Login
