@@ -10,6 +10,7 @@ import Reports from './screen/Reports/Reports';
 import Navigation from './Components/common/Navigation/Navigation';
 import Logout from './screen/Logout';
 import Login from './screen/Login';
+import NoMatch from './screen/NoMatch/NoMatch';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
                 <Route path='/Property-Management' element={<PropertyManagement/>} />
                 <Route path='/Report-Management' element={<Reports/>} />
                 <Route path='/Logout' element={<Logout/>} />
+                <Route path='/*' element={<NoMatch/>} />
             </Routes>
         </div>
 
