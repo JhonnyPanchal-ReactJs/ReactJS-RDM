@@ -19,7 +19,7 @@ li {
 }
 
 a {
-  color: #fff !important;
+  // color: #fff !important;
   text-decoration: none;
 }
 
@@ -33,4 +33,5 @@ ul li a.active {
 
 .App {
   padding: 1rem;
+  height: calc(100vh - 57px);
 }

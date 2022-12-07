@@ -3,10 +3,14 @@ module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
-  darkMode: 'class',
+  darkMode: 'media',
   theme: {
     extend: {},
   },
   plugins: [],
   important: true,
+  corePlugins: {
+    preflight: false,
+  },
+  prefix: 'tw-'
 }
