@@ -9,16 +9,17 @@ import PropertyManagement from './screen/Management/Property/PropertyManagement'
 import Reports from './screen/Reports/Reports';
 import Navigation from './Components/common/Navigation/Navigation';
 import Logout from './screen/Logout';
+import Login from './screen/Login';
 
 function App() {
   return (
       <>
-
         <Navigation/>
 
         <div className="App">
             <Routes>
-                <Route path='/' element={<Home/>} />
+                <Route path='/Home' element={<Home/>} />
+                <Route path='/' element={<Login/>} />
                 <Route path='/Alert-Management' element={<AlertManagement/>} />
                 <Route path='/Cooling-Tower-Management' element={<CoolingTowerManagement/>} />
                 <Route path='/Customer-Management' element={<CustomerManagement/>} />
