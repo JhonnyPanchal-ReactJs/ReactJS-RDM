@@ -87,47 +87,63 @@ const handleClickShowPassword = () => {
   }
 
   return (
-    <div className='form-container'>
-      <form className='form-layout' onSubmit={handleOnSubmit}>
-        <div className='textbox-with-icon'>
-          <TextInput
-            id="email"
-            type="text"
-            name="email"
-            value={input.email}
-            label="email"
-            placeholder="email"
-            erroremail={erroremail}
-            onChange={handleOnChange} />
-            <i className="bi bi-x-lg"></i>
-        </div>
-        
-        <div className='textbox-with-icon'>
-          <TextInput
-            id="password"
-            type={password}
-            name="password"
-            value={input.password}
-            label="Password"
-            placeholder="Password"
-            errorpassword={errorpassword}
-            onChange={handleOnChange} />
-          {input.showPassword ? <i onClick={handleClickShowPassword} className="bi bi-eye"></i>
-            :
-            <i onClick={handleClickShowPassword} className="bi bi-eye-slash"></i>
-          }
+    <>
+      {/* New Design Start */}
+      <div className='auth-layout'>
+        <div className='form-layout'>
+          <div className='text'>
+            <h4>Log in</h4>
+            <p>to continue Indygo beta</p>
+          </div>
+          <div className='form-fields'>
+            <div className='form-inner-wrapper'>
+              <form className='main-form-layout' onSubmit={handleOnSubmit}>
+                <div className='textbox-with-icon'>
+                  <TextInput
+                    id="email"
+                    type="text"
+                    name="email"
+                    value={input.email}
+                    label="email"
+                    placeholder="email"
+                    erroremail={erroremail}
+                    onChange={handleOnChange} />
+                    <i className="bi bi-x-lg"></i>
+                </div>
 
-        </div>
-          
-        <Button
-          color={'lightblue'}
-          text={'Submit'}
-        />
-      </form>
-      <ToastContainer
+                <div className='textbox-with-icon'>
+                  <TextInput
+                    id="password"
+                    type={password}
+                    name="password"
+                    value={input.password}
+                    label="Password"
+                    placeholder="Password"
+                    errorpassword={errorpassword}
+                    onChange={handleOnChange} />
+                  {input.showPassword ? <i onClick={handleClickShowPassword} className="bi bi-eye"></i>
+                    :
+                    <i onClick={handleClickShowPassword} className="bi bi-eye-slash"></i>
+                  }
+                </div>
 
-      />
-    </div >
+                <div className="form-actions">
+                  <a href='#' className='text-white'>Forgot password?</a>
+                  <Button text={'Login'} />
+                </div>
+              </form>
+              <ToastContainer/>
+            </div>
+          </div>
+        </div>
+        <div className='auth-footer'>
+          <p>© 2022 Indygo. All rights reserved</p>
+        </div>
+      </div>
+      {/* New Design End */}
+
+
+    </>
   )
 }
 
