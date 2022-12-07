@@ -1,12 +1,11 @@
-import React from 'react'
-import TextInput from '../../Components/common/TextInput/TextInput'
+import React from 'react';
 
 const Home = () => {
 
   return (
-      <div style={{ backgroundColor: 'red' }}>
-          <TextInput />
-          Home</div>
+      <>
+        <h1>Home</h1>
+      </>
   )
 }
 
