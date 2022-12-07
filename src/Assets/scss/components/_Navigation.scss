@@ -1,0 +1,36 @@
+.card {
+  padding: 2em;
+}
+
+nav {
+  border-bottom: 1px solid #ccc;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0;
+}
+
+li {
+  list-style: none;
+  padding: 1rem;
+}
+
+a {
+  color: #fff !important;
+  text-decoration: none;
+}
+
+ul li a:hover {
+  cursor: pointer;
+}
+
+ul li a.active {
+  color: hotpink !important;
+}
+
+.App {
+  padding: 1rem;
+}
