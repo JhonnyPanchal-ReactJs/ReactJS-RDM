@@ -1,8 +1,17 @@
 import React from 'react'
 import { NavLink} from 'react-router-dom'
+import { logoutUser } from '../../../Redux/Auth/Actions';
+import { useDispatch } from 'react-redux';
 
 
 const Navigation = () => {
+    const dispatch = useDispatch();
+
+    const handleLogout =() =>{
+       localStorage.clear();
+       dispatch(logoutUser());
+    }
+
   return (
     <>
         <nav>
@@ -26,7 +35,7 @@ const Navigation = () => {
                     <NavLink className="nav-link" to="/Report-Management">Report Management</NavLink>
                 </li>
                 <li>
-                    <NavLink className="nav-link" to="/Logout">Logout</NavLink>
+                    <NavLink className="nav-link" to="/Logout" onClick={handleLogout}>Logout</NavLink>
                 </li>
             </ul>
         </nav>
