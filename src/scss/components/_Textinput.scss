@@ -14,7 +14,7 @@
             background-color: variables.$body-bg-dark;
             display: block;
             outline: none;
-            font-weight: normal;
+            font-family: 'Gilroy-Medium';
             border-radius: variables.$base-border-radius;
             // color: #202124;
             color: variables.$body-bg-light;
@@ -46,8 +46,8 @@
             }
 
             input:-webkit-autofill,
-            input:-webkit-autofill:hover, 
-            input:-webkit-autofill:focus, 
+            input:-webkit-autofill:hover,
+            input:-webkit-autofill:focus,
             input:-webkit-autofill:active{
                 background-color: variables.$body-bg-dark !important;
             }
@@ -132,7 +132,7 @@
         font-size: 1.3rem;
         // opacity: 0;
         color: variables.$white;
-    
+
         &:hover{
             cursor: pointer;
         }
