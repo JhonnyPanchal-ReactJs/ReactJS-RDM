@@ -4,7 +4,9 @@ export const URL_LOGIN = '/login';
 
 
 // URLS FOR SHOWING NORMAL HEADER TOPBAR: START
-export const URL_HOME_PAGE = '/home';
+export const URL_HOME_PAGE = '/Home';
+export const URL_AlertManageMent = '/Alert-Management';
+
 
 export const API_URL = {
     //AUTH

@@ -6,7 +6,7 @@ import {
   URL_HOME_PAGE, API_URL
 } from '../Helpers/Paths'
 // import './css/LoginStyle.css'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate  } from 'react-router-dom';
 import CODES from '../Helpers/StatusCodes';
 import Api from '../Helpers/ApiHandler';
 import { loginUser } from '../Redux/Auth/Actions';
@@ -46,8 +46,10 @@ const handleClickShowPassword = () => {
   }else{
     setpassword('password')
   }
-  debugger
 };
+const handleInputClear = () =>{
+  setInput(initialState)
+}
   const handleOnSubmit = async (e) => {
     e.preventDefault();
     if (input.email === '') {
@@ -108,7 +110,7 @@ const handleClickShowPassword = () => {
                     placeholder="email"
                     erroremail={erroremail}
                     onChange={handleOnChange} />
-                    <i className="bi bi-x-lg"></i>
+                    <i onClick ={handleInputClear}className="bi bi-x-lg"></i>
                 </div>
 
                 <div className='textbox-with-icon'>
@@ -128,7 +130,7 @@ const handleClickShowPassword = () => {
                 </div>
 
                 <div className="form-actions">
-                  <a href='#' className='text-white'>Forgot password?</a>
+                  {/* <a href='#' className='text-white'>Forgot password?</a> */}
                   <Button text={'Login'} />
                 </div>
               </form>
