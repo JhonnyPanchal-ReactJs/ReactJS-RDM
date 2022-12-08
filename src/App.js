@@ -13,6 +13,7 @@ import Login from './screen/Login';
 import { useSelector } from 'react-redux';
 import { URL_HOME_PAGE, URL_LOGIN} from '../src/Helpers/Paths';
 import { Routes as RoutesSwitch, Route } from 'react-router-dom';
+import $ from 'jquery';
 
 
 const BEFORE_LOGIN_ACCESSIBLE_PATHS = [
@@ -24,6 +25,8 @@ function App() {
   const navigate = useNavigate();
   const isLoggedIn = useSelector((state) => state.Auth.isLoggedIn);
   const userInfo = useSelector((state) => state.Auth.userInfo);
+
+  $("html").addClass("dark")
 
   useEffect(() => {
     if (isLoggedIn && BEFORE_LOGIN_ACCESSIBLE_PATHS?.includes(window?.location?.pathname)) {
@@ -41,24 +44,24 @@ function App() {
  console.log("Checkinggg", Loggedin)
   return (
       <>
-        {Loggedin ===null ? 
-          <Login/>
-       : 
-        <Navigation/>
-        }
-        <div className="App">
-            <RoutesSwitch>
-                <Route exact  path="/Home" element={<Home/>} />
-                <Route exact  path="Alert-Management" element={<AlertManagement/>} />
-                <Route path='/Cooling-Tower-Management' element={<CoolingTowerManagement/>} />
-                <Route path='/Customer-Management' element={<CustomerManagement/>} />
-                <Route path='/Property-Management' element={<PropertyManagement/>} />
-                <Route path='/Report-Management' element={<Reports/>} />
-                <Route path='/Logout' element={<Logout/>} />
-            </RoutesSwitch>
+        <div className="tw-bg-white tw-text-black dark:tw-bg-zinc-900 dark:tw-text-white">
+          {Loggedin ===null ?
+            <Login/>
+        :
+          <Navigation/>
+          }
+          <div className="App">
+              <RoutesSwitch>
+                  <Route exact  path="/Home" element={<Home/>} />
+                  <Route exact  path="Alert-Management" element={<AlertManagement/>} />
+                  <Route path='/Cooling-Tower-Management' element={<CoolingTowerManagement/>} />
+                  <Route path='/Customer-Management' element={<CustomerManagement/>} />
+                  <Route path='/Property-Management' element={<PropertyManagement/>} />
+                  <Route path='/Report-Management' element={<Reports/>} />
+                  <Route path='/Logout' element={<Logout/>} />
+              </RoutesSwitch>
+          </div>
         </div>
-
-
       </>
   );
 }
