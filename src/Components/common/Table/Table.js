@@ -2,7 +2,7 @@ import './Table.css'
 
 const Table = ({ data, column }) => {
   return (
-    <table>
+    <table className='table table-striped table-dark table-hover table-bordered'>
       <thead>
         <tr>
           {column.map((item, index) => <TableHeadItem item={item} />)}
