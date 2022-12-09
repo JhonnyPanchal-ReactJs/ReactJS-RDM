@@ -9,7 +9,7 @@ function NoMatch() {
   $('nav').addClass("tw-hidden");
   return (
     <>
-      <div className="tw-min-h-screen tw-pt-16 tw-pb-12 tw-flex tw-flex-col tw-bg-white dark:tw-bg-zinc-700">
+      <div className="tw-min-h-screen tw-pt-16 tw-pb-12 tw-flex tw-flex-col tw-bg-white dark:tw-bg-zinc-900">
         <main className="tw-flex-grow tw-flex tw-flex-col tw-justify-center tw-max-w-7xl tw-w-full tw-mx-auto tw-px-4 sm:tw-px-6 lg:tw-px-8">
           <div className="tw-py-16">
             <div className="tw-text-center">
