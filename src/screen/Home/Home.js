@@ -1,33 +1,63 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
+import { useEffect, useState,useCallback } from 'react';
 import axios from 'axios';
 import Table from '../../Components/common/Table/Table';
 // import DateRange from '../DateRangePicker/DateRange';
 import $ from 'jquery';
 import Card from '../../Components/common/Card/Card';
+import MyPagination from '../../Components/common/Table/MyPagination';
+import {Pagination} from 'react-bootstrap';
+
 
 const Home = () => {
   $('nav').removeClass("tw-hidden");
   const [dataTable, setDataTable] = useState([]);
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(10);
+  const [page,setPage] = useState(1);
+
+  // useEffect(() => {
+  //   axios('https://jsonplaceholder.typicode.com/users')
+  //     .then(res => setDataTable(res.data))
+  //     .catch(err => console.log(err))
+  // }, []);
 
   useEffect(() => {
-    axios('https://jsonplaceholder.typicode.com/users')
-      .then(res => setDataTable(res.data))
-      .catch(err => console.log(err))
-  }, []);
+    const fetchPosts = async () => {
+      setLoading(true);
+      const res = await axios.get('https://jsonplaceholder.typicode.com/posts');
+      setPosts(res.data);
+      setLoading(false);
+    };
+
+    fetchPosts();
+  }, [page]);
+
+   // Get current posts
+   const indexOfLastPost = currentPage * postsPerPage;
+   const indexOfFirstPost = indexOfLastPost - postsPerPage;
+   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+
+   
 
   const column = [
-    { heading: 'Name', value: 'name' },
-    { heading: 'Email', value: 'email' },
-    { heading: 'Phone', value: 'phone' },
-    { heading: 'City', value: 'address.city' },
+    { heading: 'Id', value: 'id' },
+    { heading: 'Title', value: 'title' },
+    { heading: 'Body', value: 'body' },
   ]
+
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  }
 
   return (
 
     <>
 
       <div className="App">
+        
         {/* Card Section Start */}
         <div>
           <h3 className="tw-text-lg tw-leading-6 tw-font-medium tw-text-gray-900 dark:tw-text-white">Last 30 days</h3>
@@ -42,9 +72,18 @@ const Home = () => {
 
         {/* <DateRange /> */}
 
-        <Table/>
+        {/* <Table/> */}
         {/* <h1>Dynamic Table</h1>
         <Table data={dataTable} column={column} /> */}
+         <Table currentPosts={currentPosts} currentData ={posts}column={column} current ={currentPage} onChangePage={paginate} page={page} />
+         {/* <div className='tw-flex tw-justify-end tw-w-full'>
+         
+        <MyPagination 
+          current={currentPage}
+           total={currentPosts.length}
+           onChangePage={paginate}
+        />
+      </div> */}
       </div>
     </>
   )
