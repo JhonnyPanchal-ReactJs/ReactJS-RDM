@@ -45,7 +45,7 @@ function App() {
  console.log("Checkinggg", Loggedin)
   return (
       <>
-        <div className="tw-bg-white tw-text-black dark:tw-bg-zinc-900 dark:tw-text-white">
+        <div className="tw-bg-white tw-text-black dark:tw-bg-zinc-900 dark:tw-text-white tw-min-h-screen">
           {Loggedin ===null ?
             <Login/>
         :
