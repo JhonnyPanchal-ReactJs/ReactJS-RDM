@@ -14,6 +14,7 @@ import { useSelector } from 'react-redux';
 import { URL_HOME_PAGE, URL_LOGIN} from '../src/Helpers/Paths';
 import { Routes as RoutesSwitch, Route } from 'react-router-dom';
 import $ from 'jquery';
+import NoMatch from './screen/NoMatch/NoMatch';
 
 
 const BEFORE_LOGIN_ACCESSIBLE_PATHS = [
@@ -59,6 +60,7 @@ function App() {
                   <Route path='/Property-Management' element={<PropertyManagement/>} />
                   <Route path='/Report-Management' element={<Reports/>} />
                   <Route path='/Logout' element={<Logout/>} />
+                  <Route path='/*' element={<NoMatch/>} />
               </RoutesSwitch>
           </div>
         </div>
