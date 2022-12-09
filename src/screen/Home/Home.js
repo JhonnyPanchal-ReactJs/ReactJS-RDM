@@ -2,8 +2,11 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Table from '../../Components/common/Table/Table';
+import DateRange from '../DateRangePicker/DateRange';
+import $ from 'jquery';
 
 const Home = () => {
+  $('nav').removeClass("tw-hidden");
   const [dataTable, setDataTable] = useState([]);
 
   useEffect(() => {
@@ -23,7 +26,9 @@ const Home = () => {
     <>
       <div className="App">
         <h1>Dynamic Table</h1>
-        
+
+        <DateRange />
+
         <Table data={dataTable} column={column} />
       </div>
     </>

@@ -14,7 +14,7 @@ const Navigation = () => {
 
   return (
     <>
-        <nav>
+        <nav className='navigation'>
             <ul>
                 <li>
                     <NavLink className="nav-link" to="/Home">Home</NavLink>
