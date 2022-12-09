@@ -40,7 +40,7 @@ const Table = ({ data, column }) => {
 
   return (
     <div>
-      <ReactBootStrap.Table variant="dark" striped bordered hover>
+      <ReactBootStrap.Table className='tw-bg-white tw-text-black dark:tw-bg-zinc-900 dark:tw-text-white' bordered>
         <thead>
           <tr>
             <th>ID</th>
@@ -58,12 +58,14 @@ const Table = ({ data, column }) => {
             ))}
         </tbody>
       </ReactBootStrap.Table>
-      <MyPagination
-        current={currentPage}
-        total={currentPosts.length}
-       // paginate={paginate}
-        onChangePage={paginate}
-      />
+      <div className='tw-flex tw-justify-end tw-w-full'>
+        <MyPagination
+          current={currentPage}
+          total={currentPosts.length}
+        // paginate={paginate}
+          onChangePage={paginate}
+        />
+      </div>
     </div>
     // <table>
     //   <thead>

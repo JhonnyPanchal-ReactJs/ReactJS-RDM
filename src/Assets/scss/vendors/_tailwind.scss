@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components{
+    .pagination{
+        @apply tw-gap-0;
+    }
+
+    .page-item{
+        @apply tw-p-0;
+    }
+
+    .page-link{
+        @apply tw-z-10 tw-bg-indigo-50 tw-border-indigo-500 tw-text-indigo-600 tw-relative tw-inline-flex tw-items-center tw-px-4 tw-py-2 tw-border tw-text-sm tw-font-medium;
+    }
+
+    .page-item:last-child .page-link{
+        @apply tw-relative tw-inline-flex tw-items-center tw-px-4 tw-py-2 tw-rounded-r-md tw-border tw-border-gray-300 tw-bg-white tw-text-sm tw-font-medium tw-text-gray-500 hover:tw-bg-gray-50;
+    }
+}
