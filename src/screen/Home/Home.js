@@ -3,8 +3,10 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Table from '../../Components/common/Table/Table';
 import DateRange from '../DateRangePicker/DateRange';
+import $ from 'jquery';
 
 const Home = () => {
+  $('nav').removeClass("tw-hidden");
   const [dataTable, setDataTable] = useState([]);
 
   useEffect(() => {
