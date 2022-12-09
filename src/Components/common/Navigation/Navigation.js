@@ -100,7 +100,7 @@ const Navigation = () => {
                             <div className="tw-origin-top-right tw-absolute tw-right-0 tw-mt-2 tw-w-48 tw-rounded-md tw-shadow-lg tw-py-1 tw-bg-white tw-ring-1 tw-ring-black tw-ring-opacity-5 focus:tw-outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
                                 {/* Active: "bg-gray-100", Not Active: "" */}
                                 <a href="#" className="tw-block tw-px-4 tw-py-2 tw-text-sm tw-text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
-                                <NavLink to="/Logout" className="tw-block tw-px-4 tw-py-2 tw-text-sm tw-text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</NavLink>
+                                <NavLink to="/Logout" className="tw-block tw-px-4 tw-py-2 tw-text-sm tw-text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2" onClick={handleLogout}>Sign out</NavLink>
                             </div>
                         </div>
                     </div>

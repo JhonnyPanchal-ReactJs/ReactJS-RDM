@@ -44,7 +44,7 @@ function App() {
  const Loggedin = localStorage.getItem('isLoggedIn')
   return (
       <>
-        <div className="tw-bg-white tw-text-black dark:tw-bg-zinc-900 dark:tw-text-white tw-min-h-screen">
+        <div className="tw-bg-white tw-text-black dark:tw-bg-gray-800 dark:tw-text-white tw-min-h-screen">
           {Loggedin ===null ?
             <Login/>
         :
