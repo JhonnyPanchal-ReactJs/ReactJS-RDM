@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Table from '../../Components/common/Table/Table';
-import DateRange from '../DateRangePicker/DateRange';
+// import DateRange from '../DateRangePicker/DateRange';
 import $ from 'jquery';
 import Card from '../../Components/common/Card/Card';
 
@@ -40,7 +40,7 @@ const Home = () => {
         </div>
         {/* Card Section End */}
 
-        <DateRange />
+        {/* <DateRange /> */}
 
         <Table/>
         {/* <h1>Dynamic Table</h1>
