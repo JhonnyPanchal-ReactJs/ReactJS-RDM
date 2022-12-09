@@ -40,7 +40,7 @@ const Table = ({ data, column }) => {
 
   return (
     <div>
-      <ReactBootStrap.Table striped bordered hover>
+      <ReactBootStrap.Table variant="dark" striped bordered hover>
         <thead>
           <tr>
             <th>ID</th>
