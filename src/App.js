@@ -41,7 +41,6 @@ function App() {
     }
 }, [isLoggedIn, navigate, userInfo]);
  const Loggedin = localStorage.getItem('isLoggedIn')
- console.log("Checkinggg", Loggedin)
   return (
       <>
         <div className="tw-bg-white tw-text-black dark:tw-bg-zinc-900 dark:tw-text-white">

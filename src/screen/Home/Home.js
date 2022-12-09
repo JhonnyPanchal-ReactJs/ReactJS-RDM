@@ -13,18 +13,20 @@ const Home = () => {
   }, []);
 
   const column = [
-    { heading: 'Name1', value: 'name' },
-    { heading: 'Email1', value: 'email' },
-    { heading: 'Phone1', value: 'phone' },
-    { heading: 'City1', value: 'address.city' },
+    { heading: 'Name', value: 'name' },
+    { heading: 'Email', value: 'email' },
+    { heading: 'Phone', value: 'phone' },
+    { heading: 'City', value: 'address.city' },
   ]
 
   return (
+
     <>
+      
       <div className="App">
-        <h1>Dynamic Table</h1>
-        
-        <Table data={dataTable} column={column} />
+        <Table/>
+        {/* <h1>Dynamic Table</h1>
+        <Table data={dataTable} column={column} /> */}
       </div>
     </>
   )
