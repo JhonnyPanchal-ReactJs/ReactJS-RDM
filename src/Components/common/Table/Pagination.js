@@ -1,10 +1,6 @@
 import React from 'react';
 
 const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
-    console.log("postsPerPage",postsPerPage)
-    console.log("totalPosts",totalPosts)
-    console.log("paginate",paginate)
-
 
   const pageNumbers = [];
 
