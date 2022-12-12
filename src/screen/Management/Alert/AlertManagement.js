@@ -404,6 +404,7 @@ const AlertManagement = () => {
   };
 
   return (
+
     <div>
       <Space className="tw-flex tw-justify-between" style={{ marginBottom: 16 }}>
         <div className="tw-flex tw-px-8 tw-gap-3">
@@ -430,6 +431,30 @@ const AlertManagement = () => {
             </CSVLink>
           </Button>
         </div>
+
+    <div style={{textAlign:"center",marginTop:'20px'}}>
+      <Space style={{ marginBottom: 16 }}>
+        <Input
+          placeholder="Enter Search Text"
+          onChange={handleInputChange}
+          type="text"
+          allowClear
+          value={searchText}
+        />
+        <Button onClick={globalSearch} type="primary">
+          Search
+        </Button>
+        <Button onClick={reset}>Reset</Button>
+        <Button style={{ backgroundColor: "#c2115e", color: "#fff" }}>
+          <CSVLink
+            data={
+              filteredData && filteredData.length ? filteredData : modifiedData
+            }
+          >
+            Export
+          </CSVLink>
+        </Button>
+
       </Space>
       <Form form={form} component={false}>
         <DndProvider backend={HTML5Backend}>
