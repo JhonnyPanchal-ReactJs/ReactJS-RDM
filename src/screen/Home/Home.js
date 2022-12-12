@@ -5,8 +5,8 @@ import Table from '../../Components/common/Table/Table';
 // import DateRange from '../DateRangePicker/DateRange';
 import $ from 'jquery';
 import Card from '../../Components/common/Card/Card';
-import MyPagination from '../../Components/common/Table/MyPagination';
-import {Pagination} from 'react-bootstrap';
+// import MyPagination from '../../Components/common/Table/MyPagination';
+// import {Pagination} from 'react-bootstrap';
 
 
 const Home = () => {
@@ -40,7 +40,7 @@ const Home = () => {
    const indexOfFirstPost = indexOfLastPost - postsPerPage;
    const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
 
-   
+
 
   const column = [
     { heading: 'Id', value: 'id' },
@@ -56,8 +56,30 @@ const Home = () => {
 
     <>
 
+      {/* <div className="App"> */}
+        {/* Card Section Start */}
+        {/* <div>
+          <h3 className="tw-text-lg tw-leading-6 tw-font-medium tw-text-gray-900 dark:tw-text-white">Last 30 days</h3>
+          <dl className="tw-mt-5 tw-grid tw-grid-cols-1 tw-gap-5 sm:tw-grid-cols-2 lg:tw-grid-cols-4">
+            <Card title={"New Red Alerts"} value={30} />
+            <Card title={"Red Alerts"} value={41} />
+            <Card title={"New Yellow Alerts"} value={19} />
+            <Card title={"Yellow Alerts"} value={23} />
+          </dl>
+        </div> */}
+        {/* Card Section End */}
+
+        {/* <DateRange /> */}
+
+        {/* <Table/> */}
+        {/* <h1>Dynamic Table</h1>
+        <Table data={dataTable} column={column} /> */}
+      {/* </div> */}
+
+  {/* <html className="h-full bg-gray-100">
+  <body className="h-full"> */}
+
       <div className="App">
-        
         {/* Card Section Start */}
         <div>
           <h3 className="tw-text-lg tw-leading-6 tw-font-medium tw-text-gray-900 dark:tw-text-white">Last 30 days</h3>
@@ -70,18 +92,16 @@ const Home = () => {
         </div>
         {/* Card Section End */}
 
-        {/* <DateRange /> */}
-
         {/* <Table/> */}
         {/* <h1>Dynamic Table</h1>
         <Table data={dataTable} column={column} /> */}
-         <Table currentPosts={currentPosts} currentData ={posts}column={column} current ={currentPage} onChangePage={paginate} page={page} />
-         {/* <div className='tw-flex tw-justify-end tw-w-full'>
-         
-        <MyPagination 
+            <Table currentPosts={currentPosts} currentData ={posts}column={column} current ={currentPage} onChangePage={paginate} page={page} />
+        {/* <div className='tw-flex tw-justify-end tw-w-full'>
+
+        <MyPagination
           current={currentPage}
-           total={currentPosts.length}
-           onChangePage={paginate}
+            total={currentPosts.length}
+            onChangePage={paginate}
         />
       </div> */}
       </div>

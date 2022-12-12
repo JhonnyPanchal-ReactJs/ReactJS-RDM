@@ -44,13 +44,13 @@ function App() {
  const Loggedin = localStorage.getItem('isLoggedIn')
   return (
       <>
-        <div className="tw-bg-white tw-text-black dark:tw-bg-gray-800 dark:tw-text-white tw-min-h-screen">
+        <div className="tw-bg-white tw-text-black dark:tw-bg-zinc-900 dark:tw-text-white tw-min-h-screen">
           {Loggedin ===null ?
             <Login/>
         :
           <Navigation/>
           }
-          <div className="App">
+          <div className="App tw-p-0">
               <RoutesSwitch>
                   <Route exact  path="/Home" element={<Home/>} />
                   <Route exact  path="Alert-Management" element={<AlertManagement/>} />
@@ -59,7 +59,8 @@ function App() {
                   <Route path='/Property-Management' element={<PropertyManagement/>} />
                   <Route path='/Report-Management' element={<Reports/>} />
                   <Route path='/Logout' element={<Logout/>} />
-                  <Route path='/*' element={<NoMatch/>} />
+                  {/* <Route path='/*' element={<NoMatch/>} /> */}
+                  {Loggedin !== null ? <Route path='/*' element={<NoMatch/>} /> :null}
               </RoutesSwitch>
           </div>
         </div>

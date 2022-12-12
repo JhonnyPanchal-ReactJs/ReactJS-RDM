@@ -404,6 +404,34 @@ const AlertManagement = () => {
   };
 
   return (
+
+    <div>
+      <Space className="tw-flex tw-justify-between" style={{ marginBottom: 16 }}>
+        <div className="tw-flex tw-px-8 tw-gap-3">
+          <Input
+            placeholder="Enter Search Text"
+            onChange={handleInputChange}
+            type="text"
+            allowClear
+            value={searchText}
+          />
+          <Button onClick={globalSearch} type="primary">
+            Search
+          </Button>
+          <Button onClick={reset}>Reset</Button>
+        </div>
+        <div className="tw-px-8">
+          <Button className="dark:tw-bg-zinc-800">
+            <CSVLink className="dark:tw-text-white"
+              data={
+                filteredData && filteredData.length ? filteredData : modifiedData
+              }
+            >
+              Export
+            </CSVLink>
+          </Button>
+        </div>
+
     <div style={{textAlign:"center",marginTop:'20px'}}>
       <Space style={{ marginBottom: 16 }}>
         <Input
@@ -426,10 +454,12 @@ const AlertManagement = () => {
             Export
           </CSVLink>
         </Button>
+
       </Space>
       <Form form={form} component={false}>
         <DndProvider backend={HTML5Backend}>
           <Table
+            className="tw-px-8"
             ref={tableRef}
             columns={mergedColumns}
             components={{

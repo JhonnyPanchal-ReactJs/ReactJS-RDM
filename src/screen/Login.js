@@ -71,9 +71,14 @@ const handleInputClear = () =>{
           data: input,
         });
         if (response?.status === CODES.SUCCESS) {
-          dispatch(loginUser(response?.data));
+          // dispatch(loginUser(response?.data));
+          // toast.success("Login Success")
+          // navigate(URL_HOME_PAGE)
           toast.success("Login Success")
-          navigate(URL_HOME_PAGE)
+          setTimeout(() => {
+            dispatch(loginUser(response?.data));
+            navigate(URL_HOME_PAGE)
+          }, 5000);
           return;
         }
       } catch (error) {

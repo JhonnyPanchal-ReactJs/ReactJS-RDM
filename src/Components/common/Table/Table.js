@@ -75,7 +75,7 @@ const Table = ({ currentPosts, column,current,onChangePage,currentData}) => {
 
   return (
     <div>
-      <ReactBootStrap.Table className='tw-bg-white tw-text-black dark:tw-bg-gray-800 dark:tw-text-white' bordered>
+      <ReactBootStrap.Table className='tw-bg-white tw-text-black dark:tw-bg-zinc-800 dark:tw-text-white' bordered>
         <thead>
           <tr>
           {
