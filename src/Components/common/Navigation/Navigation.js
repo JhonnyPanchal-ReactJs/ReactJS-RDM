@@ -63,7 +63,7 @@ const Navigation = () => {
                             <img className="tw-block lg:tw-hidden tw-h-8 tw-w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" alt="Workflow" />
                             <img className="tw-hidden lg:tw-block tw-h-8 tw-w-auto" src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg" alt="Workflow" />
                         </div> */}
-                        <div className="navigation tw-hidden sm:tw-block sm:tw-ml-6">
+                        <div className="navigation tw-hidden sm:tw-block">
                             <div className="tw-flex tw-space-x-4">
                                 {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
                                 <NavLink to="/Home" className="hover:tw-bg-gray-700 tw-text-white tw-px-3 tw-py-2 tw-rounded-md tw-text-sm tw-font-medium" aria-current="page">Home</NavLink>

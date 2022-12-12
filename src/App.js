@@ -59,7 +59,8 @@ function App() {
                   <Route path='/Property-Management' element={<PropertyManagement/>} />
                   <Route path='/Report-Management' element={<Reports/>} />
                   <Route path='/Logout' element={<Logout/>} />
-                  <Route path='/*' element={<NoMatch/>} />
+                  {/* <Route path='/*' element={<NoMatch/>} /> */}
+                  {Loggedin !== null ? <Route path='/*' element={<NoMatch/>} /> :null}
               </RoutesSwitch>
           </div>
         </div>

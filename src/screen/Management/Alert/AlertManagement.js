@@ -405,19 +405,21 @@ const AlertManagement = () => {
 
   return (
     <div>
-      <Space style={{ marginBottom: 16 }}>
-        <Input
-          placeholder="Enter Search Text"
-          onChange={handleInputChange}
-          type="text"
-          allowClear
-          value={searchText}
-        />
-        <Button onClick={globalSearch} type="primary">
-          Search
-        </Button>
-        <Button onClick={reset}>Reset</Button>
-        <div className="tw-ml-auto tw-w-100 tw-inline-block">
+      <Space className="tw-flex tw-justify-between" style={{ marginBottom: 16 }}>
+        <div className="tw-flex tw-px-8 tw-gap-3">
+          <Input
+            placeholder="Enter Search Text"
+            onChange={handleInputChange}
+            type="text"
+            allowClear
+            value={searchText}
+          />
+          <Button onClick={globalSearch} type="primary">
+            Search
+          </Button>
+          <Button onClick={reset}>Reset</Button>
+        </div>
+        <div className="tw-px-8">
           <Button className="dark:tw-bg-zinc-800">
             <CSVLink className="dark:tw-text-white"
               data={
@@ -432,6 +434,7 @@ const AlertManagement = () => {
       <Form form={form} component={false}>
         <DndProvider backend={HTML5Backend}>
           <Table
+            className="tw-px-8"
             ref={tableRef}
             columns={mergedColumns}
             components={{
