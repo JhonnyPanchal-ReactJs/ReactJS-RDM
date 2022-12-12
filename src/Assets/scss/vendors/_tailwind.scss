@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @layer components{
+    // Pagination Style
     .pagination{
         @apply tw-gap-0;
     }
@@ -12,14 +13,21 @@
     }
 
     .page-link{
-        @apply tw-z-10 tw-bg-indigo-50 tw-border-indigo-500 tw-text-indigo-600 tw-relative tw-inline-flex tw-items-center tw-px-4 tw-py-2 tw-border tw-text-sm tw-font-medium;
+        @apply tw-z-10 tw-bg-indigo-50 tw-border-blue-500 tw-text-blue-500 tw-relative tw-inline-flex tw-items-center tw-px-4 tw-py-2 tw-border tw-text-sm tw-font-medium;
     }
 
     .page-item:last-child .page-link{
         @apply tw-relative tw-inline-flex tw-items-center tw-px-4 tw-py-2 tw-rounded-r-md tw-border tw-border-gray-300 tw-bg-white tw-text-sm tw-font-medium tw-text-gray-500 hover:tw-bg-gray-50;
     }
 
-    a.tw-text-gray-300.hover\:tw-bg-gray-700.hover\:tw-text-white.tw-px-3.tw-py-2.tw-rounded-md.tw-text-sm.tw-font-medium.active{
-        @apply tw-bg-gray-700
+    // Navigation Style
+    .navigation{
+        .navLink{
+            @apply tw-text-gray-300 tw-px-3 tw-py-2 tw-rounded-md tw-text-sm tw-font-medium tw-flex tw-gap-2 tw-justify-center tw-align-middle;
+
+            &.active{
+                @apply tw-text-white;
+            }
+        }
     }
 }

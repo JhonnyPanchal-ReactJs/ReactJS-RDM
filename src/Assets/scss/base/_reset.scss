@@ -10,24 +10,24 @@ body{
     height: 40px !important;
     width: 40px !important;
     background-color: transparent !important;
-    color: white !important;
+    // color: white !important;
     padding: 8px !important;
     line-height: unset !important;
 
     &.ant-pagination-next,
     &.ant-pagination-prev{
-        color: white !important;
+        // color: white !important;
     }
 }
 
 .ant-pagination li.ant-pagination-options{
     background-color: unset !important;
-    color: white !important;
+    // color: white !important;
     padding: 0 !important;
 }
 
 .anticon-right,
 .anticon-left,
 .ant-pagination-item-ellipsis{
-    color: white !important;
+    // color: white !important;
 }
