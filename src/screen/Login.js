@@ -97,7 +97,7 @@ const handleInputClear = () =>{
     <>
       {/* New Design Start */}
       <div className='auth-layout'>
-        <div className='form-layout'>
+        <div className='form-layout tw-bg-gray-400 dark:tw-bg-zinc-800'>
           <div className='text'>
             <h4>Log in</h4>
             <p>to continue Indygo beta</p>

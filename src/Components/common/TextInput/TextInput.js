@@ -15,7 +15,7 @@ const TextInput = ({ id, name, value, type, label, onChange,required,placeholder
                     erroremail={erroremail}
                     errorpassword={errorpassword}
                 />
-                <label htmlFor={id}>
+                <label htmlFor={id} className="tw-bg-gray-400 dark:tw-bg-zinc-800">
                     {label}
                 </label>
                 {/* <i onclick={(e) => onclick(e)} className={iconClass}></i> */}
