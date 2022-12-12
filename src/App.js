@@ -15,6 +15,7 @@ import { URL_HOME_PAGE, URL_LOGIN} from '../src/Helpers/Paths';
 import { Routes as RoutesSwitch, Route } from 'react-router-dom';
 import $ from 'jquery';
 import NoMatch from './screen/NoMatch/NoMatch';
+import LoginForm from './screen/LoginForm/LoginForm';
 
 
 const BEFORE_LOGIN_ACCESSIBLE_PATHS = [
@@ -46,7 +47,7 @@ function App() {
       <>
         <div className="tw-bg-white tw-text-black dark:tw-bg-zinc-900 dark:tw-text-white tw-min-h-screen">
           {Loggedin ===null ?
-            <Login/>
+            <LoginForm/>
         :
           <Navigation/>
           }

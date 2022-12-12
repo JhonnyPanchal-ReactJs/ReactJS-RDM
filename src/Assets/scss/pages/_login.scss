@@ -103,3 +103,17 @@ body{
 .dark .form-layout .text p{
     color: #99989D;
 }
+.errInput {
+    composes: input;
+    color: #f25137;
+  }
+
+  .errPassword {
+    top: 81%;
+  }
+  
+  .errText {
+    font-size: 12px;
+    color: #f25137;
+  }
+  

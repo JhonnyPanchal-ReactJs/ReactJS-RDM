@@ -1,14 +1,42 @@
 import React from 'react'
 // import './TextInput.css'
-const TextInput = ({ id, name, value, type, label, onChange,required,placeholder, iconClass, erroremail,errorpassword }) => {
+import s from '../../../screen/LoginForm/LoginForm.module.scss';
+import { Formik, Form, ErrorMessage, useField } from 'formik';
+
+const Input = ({ name, label, htmlFor, error, ...props }) => {
+    const [field, meta] = useField(name);
+    return (
+      <>
+        <label className={s.label} htmlFor={htmlFor}>
+          {label}
+        </label>
+        <input
+          className={`${meta.error ? s.errInput : s.input}`}
+          {...field}
+          {...props}
+        />
+        <ErrorMessage
+          name={name}
+          render={msg => (
+            <div className={s[error]}>
+              <p className={s.errText}>{msg}</p>
+            </div>
+          )}
+        />
+      </>
+    );
+  };
+
+
+
+const TextInput = ({ id, name, value, type, label, required,placeholder, iconClass, erroremail,errorpassword }) => {
     return (
             <div className='form-group'>
-                <input
+                <Input
                     type={type}
                     id={id}
                     name={name}
                     value={value}
-                    onChange={(e) => onChange(e)}
                     required ={required}
                     placeholder={placeholder}
                     className="input-field"
