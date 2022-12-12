@@ -5,8 +5,8 @@ import Table from '../../Components/common/Table/Table';
 // import DateRange from '../DateRangePicker/DateRange';
 import $ from 'jquery';
 import Card from '../../Components/common/Card/Card';
-import MyPagination from '../../Components/common/Table/MyPagination';
-import {Pagination} from 'react-bootstrap';
+// import MyPagination from '../../Components/common/Table/MyPagination';
+// import {Pagination} from 'react-bootstrap';
 
 
 const Home = () => {
