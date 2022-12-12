@@ -100,7 +100,7 @@ const handleInputClear = () =>{
         <div className='form-layout tw-bg-gray-400 dark:tw-bg-zinc-800'>
           <div className='text'>
             <h4>Log in</h4>
-            <p>to continue Indygo beta</p>
+            <p className='tw-text-gray-200'>to continue Indygo beta</p>
           </div>
           <div className='form-fields'>
             <div className='form-inner-wrapper'>
