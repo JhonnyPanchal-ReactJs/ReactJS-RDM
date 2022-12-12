@@ -417,15 +417,17 @@ const AlertManagement = () => {
           Search
         </Button>
         <Button onClick={reset}>Reset</Button>
-        <Button style={{ backgroundColor: "#c2115e", color: "#fff" }}>
-          <CSVLink
-            data={
-              filteredData && filteredData.length ? filteredData : modifiedData
-            }
-          >
-            Export
-          </CSVLink>
-        </Button>
+        <div className="tw-ml-auto tw-w-100 tw-inline-block">
+          <Button className="dark:tw-bg-zinc-800">
+            <CSVLink className="dark:tw-text-white"
+              data={
+                filteredData && filteredData.length ? filteredData : modifiedData
+              }
+            >
+              Export
+            </CSVLink>
+          </Button>
+        </div>
       </Space>
       <Form form={form} component={false}>
         <DndProvider backend={HTML5Backend}>
