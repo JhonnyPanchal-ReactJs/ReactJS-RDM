@@ -9,6 +9,7 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import update from "immutability-helper";
 import { CSVLink } from "react-csv";
 import $ from 'jquery';
+import ShowModal from "../../../Components/common/Modal/ShowModal";
 
 const AlertManagement = () => {
   $('nav').removeClass("tw-hidden");
@@ -23,6 +24,9 @@ const AlertManagement = () => {
   const [filteredInfo, setFilteredInfo] = useState({});
   const [showFilter, setShowFilter] = useState(true);
   let [filteredData] = useState();
+  const [showModal, updateShowModal] = useState(false);
+
+
   const type = "DraggableBodyRow";
   const tableRef = useRef();
 
@@ -112,7 +116,15 @@ const AlertManagement = () => {
     [modifiedData]
   );
 
-  console.log("modifiedData", modifiedData);
+
+
+  const toggleModal = () => {
+    updateShowModal(state => !state)
+  };
+
+  const toggleClose =() =>{
+    updateShowModal(false)
+  }
 
   const handleDelete = (value) => {
     const dataSource = [...modifiedData];
@@ -324,6 +336,10 @@ const AlertManagement = () => {
                 Edit
               </Button>
             )}
+            <Button onClick={toggleModal} type="primary">
+                Modal
+              </Button>
+              <ShowModal canShow={showModal} title="Header Text Message" updateModalState={toggleModal} closemodal={toggleClose}></ShowModal>
           </Space>
         ) : null;
       },
