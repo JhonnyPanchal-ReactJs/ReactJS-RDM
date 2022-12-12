@@ -40,7 +40,7 @@ const Navigation = () => {
             </ul>
         </nav> */}
 
-        <nav className="tw-bg-gray-800">
+        <nav className="tw-bg-white dark:tw-bg-stone-800">
             <div className="tw-tw-max-w-7xl tw-mx-auto tw-px-2 sm:tw-px-6 lg:tw-px-8">
                 <div className="tw-relative tw-flex tw-items-center tw-justify-between tw-h-16">
                     <div className="tw-absolute tw-inset-y-0 tw-left-0 tw-flex tw-items-center sm:tw-hidden">
@@ -59,24 +59,24 @@ const Navigation = () => {
                         </button>
                     </div>
                     <div className="tw-flex-1 tw-flex tw-items-center tw-justify-center sm:tw-items-stretch sm:tw-justify-start">
-                        <div className="tw-flex-shrink-0 tw-flex tw-items-center">
+                        {/* <div className="tw-flex-shrink-0 tw-flex tw-items-center">
                             <img className="tw-block lg:tw-hidden tw-h-8 tw-w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" alt="Workflow" />
                             <img className="tw-hidden lg:tw-block tw-h-8 tw-w-auto" src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg" alt="Workflow" />
-                        </div>
+                        </div> */}
                         <div className="tw-hidden sm:tw-block sm:tw-ml-6">
                             <div className="tw-flex tw-space-x-4">
                                 {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
-                                <NavLink to="/Home" className="tw-bg-gray-900 tw-text-white tw-px-3 tw-py-2 tw-rounded-md tw-text-sm tw-font-medium" aria-current="page">Home</NavLink>
+                                <NavLink to="/Home" className="tw-bg-gray-700 tw-text-white tw-px-3 tw-py-2 tw-rounded-md tw-text-sm tw-font-medium" aria-current="page">Home</NavLink>
 
-                                <NavLink to="/Alert-Management" className="tw-text-gray-300 hover:tw-bg-gray-700 hover:tw-text-white tw-px-3 tw-py-2 tw-rounded-md tw-text-sm tw-font-medium">Alert Management</NavLink>
+                                <NavLink to="/Alert-Management" className="tw-text-gray-300 hover:tw-bg-gray-700 hover:tw-text-white tw-px-3 tw-py-2 tw-rounded-md tw-text-sm tw-font-medium">Alert</NavLink>
 
-                                <NavLink to="/Cooling-Tower-Management" className="tw-text-gray-300 hover:tw-bg-gray-700 hover:tw-text-white tw-px-3 tw-py-2 tw-rounded-md tw-text-sm tw-font-medium">Cooling Tower Management</NavLink>
+                                <NavLink to="/Cooling-Tower-Management" className="tw-text-gray-300 hover:tw-bg-gray-700 hover:tw-text-white tw-px-3 tw-py-2 tw-rounded-md tw-text-sm tw-font-medium">Cooling Tower</NavLink>
 
-                                <NavLink to="/Customer-Management" className="tw-text-gray-300 hover:tw-bg-gray-700 hover:tw-text-white tw-px-3 tw-py-2 tw-rounded-md tw-text-sm tw-font-medium">Customer Management</NavLink>
+                                <NavLink to="/Customer-Management" className="tw-text-gray-300 hover:tw-bg-gray-700 hover:tw-text-white tw-px-3 tw-py-2 tw-rounded-md tw-text-sm tw-font-medium">Customer</NavLink>
 
-                                <NavLink to="/Property-Management" className="tw-text-gray-300 hover:tw-bg-gray-700 hover:tw-text-white tw-px-3 tw-py-2 tw-rounded-md tw-text-sm tw-font-medium">Property Management</NavLink>
+                                <NavLink to="/Property-Management" className="tw-text-gray-300 hover:tw-bg-gray-700 hover:tw-text-white tw-px-3 tw-py-2 tw-rounded-md tw-text-sm tw-font-medium">Property</NavLink>
 
-                                <NavLink to="/Report-Management" href="#" className="tw-text-gray-300 hover:tw-bg-gray-700 hover:tw-text-white tw-px-3 tw-py-2 tw-rounded-md tw-text-sm tw-font-medium">Report Management</NavLink>
+                                <NavLink to="/Report-Management" href="#" className="tw-text-gray-300 hover:tw-bg-gray-700 hover:tw-text-white tw-px-3 tw-py-2 tw-rounded-md tw-text-sm tw-font-medium">Report</NavLink>
                             </div>
                         </div>
                     </div>
