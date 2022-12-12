@@ -432,29 +432,6 @@ const AlertManagement = () => {
           </Button>
         </div>
 
-    <div style={{textAlign:"center",marginTop:'20px'}}>
-      <Space style={{ marginBottom: 16 }}>
-        <Input
-          placeholder="Enter Search Text"
-          onChange={handleInputChange}
-          type="text"
-          allowClear
-          value={searchText}
-        />
-        <Button onClick={globalSearch} type="primary">
-          Search
-        </Button>
-        <Button onClick={reset}>Reset</Button>
-        <Button style={{ backgroundColor: "#c2115e", color: "#fff" }}>
-          <CSVLink
-            data={
-              filteredData && filteredData.length ? filteredData : modifiedData
-            }
-          >
-            Export
-          </CSVLink>
-        </Button>
-
       </Space>
       <Form form={form} component={false}>
         <DndProvider backend={HTML5Backend}>
