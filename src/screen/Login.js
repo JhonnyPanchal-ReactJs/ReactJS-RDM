@@ -14,6 +14,7 @@ import { useDispatch } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { environment } from '../environment.development';
+import Check from '../Components/common/Check/Check';
 
 
 const Login = () => {
@@ -133,7 +134,7 @@ const handleInputClear = () =>{
                     <i onClick={handleClickShowPassword} className="bi bi-eye-slash"></i>
                   }
                 </div>
-
+                <Check isChecked={true} label="Remember me" />
                 <div className="form-actions">
                   {/* <a href='#' className='text-white'>Forgot password?</a> */}
                   <Button text={'Login'} />
