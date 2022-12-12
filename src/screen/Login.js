@@ -78,7 +78,7 @@ const handleInputClear = () =>{
           setTimeout(() => {
             dispatch(loginUser(response?.data));
             navigate(URL_HOME_PAGE)
-          }, 5000);
+          }, 1000);
           return;
         }
       } catch (error) {
