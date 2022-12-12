@@ -404,7 +404,7 @@ const AlertManagement = () => {
   };
 
   return (
-    <div>
+    <div style={{textAlign:"center",marginTop:'20px'}}>
       <Space style={{ marginBottom: 16 }}>
         <Input
           placeholder="Enter Search Text"
