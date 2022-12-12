@@ -50,7 +50,7 @@ function App() {
         :
           <Navigation/>
           }
-          <div className="App tw-p-0">
+          <div className="App tw-p-0 tw-px-8">
               <RoutesSwitch>
                   <Route exact  path="/Home" element={<Home/>} />
                   <Route exact  path="Alert-Management" element={<AlertManagement/>} />

@@ -406,8 +406,8 @@ const AlertManagement = () => {
   return (
 
     <div>
-      <Space className="tw-flex tw-justify-between" style={{ marginBottom: 16 }}>
-        <div className="tw-flex tw-px-8 tw-gap-3">
+      <Space className="tw-flex tw-justify-between tw-py-6 tw-mb-0" style={{ marginBottom: 16 }}>
+        <div className="tw-flex tw-gap-3">
           <Input
             placeholder="Enter Search Text"
             onChange={handleInputChange}
@@ -420,7 +420,7 @@ const AlertManagement = () => {
           </Button>
           <Button onClick={reset}>Reset</Button>
         </div>
-        <div className="tw-px-8">
+        <div>
           <Button className="dark:tw-bg-zinc-800">
             <CSVLink className="dark:tw-text-white"
               data={
@@ -436,7 +436,6 @@ const AlertManagement = () => {
       <Form form={form} component={false}>
         <DndProvider backend={HTML5Backend}>
           <Table
-            className="tw-px-8"
             ref={tableRef}
             columns={mergedColumns}
             components={{
