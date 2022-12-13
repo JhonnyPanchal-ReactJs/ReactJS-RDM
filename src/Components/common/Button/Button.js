@@ -12,11 +12,12 @@
 // export default Button;
 
 import React from 'react'
-const Button = ({ bgColor, color, text, onClick }) => {
+const Button = ({ bgColor, color, text, onClick ,type}) => {
     return (
         <button
             onClick={onClick}
             style={{ backgroundColor: bgColor, color: color }}
+            type={type}
             className='button'>
             {text}
         </button>

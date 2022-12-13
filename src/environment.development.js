@@ -8,7 +8,7 @@ export const environment = {
      blobURL: 'https://storageaccountkemsy96a3.blob.core.windows.net/',
     cachedTelemetryContainer: 'telemetry',
     app: 'IndygoBeta',
-    environment: 'DEV',
+    environment: 'TEST',
     version: '4.0',
     packageManagementContainer: 'packages',
     storgageSecretKey: 'kEm$Y$*RdM',

@@ -1,8 +1,8 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { setError, logOut, setCredentials } from '../authUser/authUserSlice';
-
+import { environment } from '../../environment.development';
 const baseQuery = fetchBaseQuery({
-  baseUrl: 'https://fullstack-team-project-back.onrender.com/',
+  baseUrl: environment.appServerURL,
 
   prepareHeaders: (headers, { getState }) => {
     const token = getState().auth.token;
@@ -14,6 +14,7 @@ const baseQuery = fetchBaseQuery({
 });
 
 const baseQueryWithErrorHandler = async (args, api, extraOptions) => {
+  debugger
   api.dispatch(setError(null));
   let result = await baseQuery(args, api, extraOptions);
   if (!result?.meta?.response?.ok) {

@@ -1,21 +1,21 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useTranslation } from 'react-i18next';
 import { Formik, Form, ErrorMessage, useField } from 'formik';
 import * as yup from 'yup';
 import {
-  useLoginUserMutation,
-  useRestorePasswordMutation,
-} from '../../Redux/authUser/authUserApiSlice';
-import { setCredentials, getCurrentUser } from '../../Redux/authUser/authUserSlice';
-// import LoginTimer from 'components/LoginTimer';
+  URL_HOME_PAGE, API_URL
+} from '../../Helpers/Paths'
 import sprite from '../../Assets/images/sprite.svg';
 import s from './LoginForm.module.scss';
 import TextInput from '../../Components/common/TextInput/TextInput';
-import Button from '../../Components/common/Button/Button';
-// import { booksApi } from 'redux/books/booksApi';
+import { environment } from '../../environment.development';
+import Api from '../../Helpers/ApiHandler';
+import CODES from '../../Helpers/StatusCodes';
+import { loginUser } from '../../Redux/Auth/Actions';
+
 
 
 const initialValues = {
@@ -23,16 +23,13 @@ const initialValues = {
   password: '',
 };
 
-
-
 const LoginForm = () => {
+  const navigate = useNavigate();
+  const API = useMemo(() => new Api(), []);
   const [showPassword, setShowPassword] = useState(false);
-  const [loginUser] = useLoginUserMutation();
-  const [restorePassword] = useRestorePasswordMutation();
-  const email = useState('');
   const { t } = useTranslation();
-  const [searchParams] = useSearchParams();
   const dispatch = useDispatch();
+  const [isLoading, setIsLoading] = useState(false);
 
   const schema = yup.object().shape({
     email: yup
@@ -53,24 +50,40 @@ const LoginForm = () => {
   });
 
   const handleSubmit = async ({ email, password }) => {
-    alert('1')
-    console.log("email", email)
-    console.log("password", password)
     try {
-      const userData = await loginUser({ email, password }).unwrap();
-      dispatch(setCredentials({ ...userData.data }));
-      // dispatch({
-      //   type: `${booksApi.reducerPath}/invalidateTags`,
-      //   payload: ['Books'],
-      // });
+      setIsLoading(true);
+      let reqBody = {
+        email: email,
+        password: password,
+        app: environment.app,
+        environment: environment.environment
+      }
+
+      let response = await API.post(API_URL.LOG_IN, {
+        data: reqBody
+      });
+      if (response?.status === CODES.SUCCESS) {
+        toast.success("Login Success")
+        setTimeout(() => {
+          dispatch(loginUser(response?.data));
+
+          navigate(URL_HOME_PAGE)
+        }, 1000);
+        return;
+      }
     } catch (error) {
-      toast.error(error.data.message);
-      dispatch(
-        setCredentials({
-          user: { email },
-        })
-      );
+      if (
+        error?.response?.status === CODES.UNAUTHORIZED ||
+        error?.response?.status === CODES.PRECONDITION_FAILED ||
+        error.response?.status === CODES.BAD_REQUEST
+      ) {
+        toast.error("Wrong Credentials")
+        setIsLoading(false);
+
+      }
     }
+
+
   };
 
   // useEffect(() => {
