@@ -78,7 +78,7 @@ const handleInputClear = () =>{
           toast.success("Login Success")
           setTimeout(() => {
             dispatch(loginUser(response?.data));
-            navigate(URL_HOME_PAGE)
+            navigate('Kpix/Dashboard/')
           }, 1000);
           return;
         }

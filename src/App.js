@@ -15,6 +15,7 @@ import { URL_HOME_PAGE, URL_LOGIN} from '../src/Helpers/Paths';
 import { Routes as RoutesSwitch, Route } from 'react-router-dom';
 import $ from 'jquery';
 import NoMatch from './screen/NoMatch/NoMatch';
+import Dashboard from './screen/Kpix/Dashboard/Dashboard';
 
 
 const BEFORE_LOGIN_ACCESSIBLE_PATHS = [
@@ -48,10 +49,12 @@ function App() {
           {Loggedin ===null ?
             <Login/>
         :
-          <Navigation/>
+            <></>
+          // <Navigation/>
           }
           <div className="App tw-p-0 tw-px-8">
               <RoutesSwitch>
+                  <Route exact  path="Kpix/Dashboard" element={<Dashboard/>} />
                   <Route exact  path="/Home" element={<Home/>} />
                   <Route exact  path="Alert-Management" element={<AlertManagement/>} />
                   <Route path='/Cooling-Tower-Management' element={<CoolingTowerManagement/>} />
