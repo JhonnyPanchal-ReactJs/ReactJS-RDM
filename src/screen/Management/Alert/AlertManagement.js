@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import React, { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import axios from "axios";
 import { Table, Popconfirm, Button, Space, Form, Input } from "antd";
 import { isEmpty } from "lodash";
@@ -10,9 +10,13 @@ import update from "immutability-helper";
 import { CSVLink } from "react-csv";
 import $ from 'jquery';
 import ShowModal from "../../../Components/common/Modal/ShowModal";
+import { API_URL } from "../../../Helpers/Paths";
+import Api from '../../../Helpers/ApiHandler';
+import { async } from "q";
 
 const AlertManagement = () => {
   $('nav').removeClass("tw-hidden");
+  const API = useMemo(() => new Api(), []);
   const [gridData, setGridData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [editRowKey, setEditRowKey] = useState("");
@@ -25,13 +29,17 @@ const AlertManagement = () => {
   const [showFilter, setShowFilter] = useState(true);
   let [filteredData] = useState();
   const [showModal, updateShowModal] = useState(false);
+  const [modelslaves,setModalslaves] =useState([])
 
 
   const type = "DraggableBodyRow";
   const tableRef = useRef();
 
-  useEffect(() => {
+  useEffect( () => {
     loadData();
+    getModelSlaves();
+    getExportedHierarchy();
+    getAssetList();
   }, []);
 
   const loadData = async () => {
@@ -43,6 +51,29 @@ const AlertManagement = () => {
     setLoading(false);
   };
 
+  const getModelSlaves = async () => {
+    let response = await API.get(API_URL.GET_ASSETS_MODEL_SLAVES);
+    setModalslaves(response.data);
+  };
+
+  const getExportedHierarchy = async () =>{
+    let hierarchyresponse = await API.get(API_URL.GET_EXPORTED_HIERARCHY ,{
+      params: { response_format: 'Object' }
+    });
+  }
+const getAssetList = async () =>{
+  let hierarchyObj = JSON.parse(localStorage.getItem('default_hierarchy'))
+  const assetTypesObj = {
+    hierarchy: JSON.stringify(hierarchyObj),
+    type: 'IoT Asset' + ',' + 'Legacy Asset' + ',' + 'IoT Gateway',
+  };
+  console.log("assettypesobj", assetTypesObj)
+  let hierarchyresponse = await API.get(API_URL.GET_IoT_LEGACY_ASSETS,{
+    params:  assetTypesObj 
+
+  })
+
+}
   const DraggableBodyRow = ({
     index,
     moveRow,

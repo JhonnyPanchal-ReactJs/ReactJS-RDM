@@ -15,6 +15,10 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { environment } from '../environment.development';
 import Check from '../Components/common/Check/Check';
+import jwt from 'jwt-decode' // import dependency
+import jwtDecode from 'jwt-decode';
+import { async } from 'q';
+var CryptoJS = require("crypto-js");
 
 
 const Login = () => {
@@ -30,6 +34,11 @@ const Login = () => {
   const [input, setInput] = useState(initialState);
   const [erroremail, setErrorEmail] = useState("");
   const [errorpassword, setErrorPassword] = useState("");
+  const [userResponse, setuserResponse] = useState("");
+  const [managementResponse, setmanagementResponse] = useState("");
+
+
+
   const dispatch = useDispatch();
 
 
@@ -72,13 +81,13 @@ const handleInputClear = () =>{
           data: input,
         });
         if (response?.status === CODES.SUCCESS) {
-          // dispatch(loginUser(response?.data));
-          // toast.success("Login Success")
-          // navigate(URL_HOME_PAGE)
           toast.success("Login Success")
-          setTimeout(() => {
+          setTimeout(async () => {
+            setuserResponse(response?.data)
             dispatch(loginUser(response?.data));
-            navigate(URL_HOME_PAGE)
+             processUserData(response?.data);
+
+            //navigate(URL_HOME_PAGE)
           }, 1000);
           return;
         }
@@ -94,6 +103,49 @@ const handleInputClear = () =>{
     }
   }
 
+  const processUserData = async (userResponse) =>{
+    localStorage.removeItem('appToken');
+    localStorage.setItem('appToken', userResponse.apps[0].token);
+    localStorage.setItem('refresh_token', userResponse.refreshtoken);
+    const decodedToken = jwtDecode(userResponse.apps[0].token);
+    const obj = {
+      hierarchy: decodedToken.hierarchy,
+      role: decodedToken.role,
+      privileges: decodedToken.privileges,
+    };
+    userResponse.apps[0].user = obj;
+    getApplicationData(userResponse.apps[0]);
+
+    localStorage.setItem('default_hierarchy',JSON.stringify(obj.hierarchy))
+
+  }
+  const getApplicationData =async (app) =>{
+    let response = await API.get(API_URL.GET_APP_DETAILS + '/' + app.app)
+    var ciphertext = CryptoJS.AES.encrypt(JSON.stringify(response.data), 'kEm$Y$*RdM').toString();
+    localStorage.setItem('selectedAppData',ciphertext)
+     getManagementCompany ()
+  }
+  const getManagementCompany= async () =>{
+    const custObj = {
+      level: 1
+    };
+    let response = await API.get(API_URL.Get_HIERARCHY ,{
+      params:  custObj 
+    })
+    localStorage.setItem('managment_company', JSON.stringify(response?.data))
+    var localStorageAppData = localStorage.getItem('selectedAppData');
+    var bytes = CryptoJS.AES.decrypt(localStorageAppData, 'kEm$Y$*RdM');
+    var decryptedData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+    var managementcompany = JSON.parse(localStorage.getItem('managment_company'))
+    const hierarchyObj = {};
+    hierarchyObj[decryptedData.hierarchy.levels[0]] = environment.app;
+    hierarchyObj[decryptedData.hierarchy.levels[1]] = managementcompany?.data[0].name;
+    localStorage.removeItem('default_hierarchy')
+    localStorage.setItem('default_hierarchy', JSON.stringify(hierarchyObj))
+    console.log("hierarchy", JSON.stringify(hierarchyObj))
+  
+  }
+  
   return (
     <>
       {/* New Design Start */}

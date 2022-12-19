@@ -4,7 +4,7 @@ import $ from 'jquery';
 const Reports = () => {
   $('nav').removeClass("tw-hidden");
   return (
-    <h1>Reports</h1>
+    <h1 style={{color:'black'}}>Reports</h1>
   )
 }
 

@@ -4,7 +4,7 @@ import $ from 'jquery';
 const CustomerManagement = () => {
   $('nav').removeClass("tw-hidden");
   return (
-    <h1>Customer Management</h1>
+    <h1 style={{color:'black'}} >Customer Management</h1>
   )
 }
 

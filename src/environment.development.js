@@ -1,3 +1,5 @@
+
+
 export const environment = {
     production: false,
     appServerURL: 'https://api-qa.kempaas.io/api/',
@@ -13,6 +15,7 @@ export const environment = {
     packageManagementContainer: 'packages',
     storgageSecretKey: 'kEm$Y$*RdM',
     redirectToLogin: false,
+    REACT_APP_BASE_PATH:'/',
     rememberPeriod:"7" //in days
   };
   

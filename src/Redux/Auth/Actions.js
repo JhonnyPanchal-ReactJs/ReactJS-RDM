@@ -6,10 +6,14 @@ export const ACTION_TYPES = {
 
 export const loginUser = (data) => {
     const accessToken = data?.token;
+    const appToken = data.apps[0]?.token;
+
     const refreshToken = data?.refreshtoken
     delete data?.accessToken;
     localStorage.setItem('isLoggedIn', true);
     localStorage.setItem('accessToken', accessToken);
+    localStorage.setItem('appToken', appToken);
+
     localStorage.setItem('userInfo', JSON.stringify(data));
     localStorage.setItem('refresh_token',refreshToken)
     return {

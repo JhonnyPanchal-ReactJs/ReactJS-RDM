@@ -4,7 +4,7 @@ import $ from 'jquery';
 const PropertyManagement = () => {
   $('nav').removeClass("tw-hidden");
   return (
-    <h1>Property Management</h1>
+    <h1 style={{color:'black'}}>Property Management</h1>
   )
 }
 

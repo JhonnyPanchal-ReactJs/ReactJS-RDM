@@ -3,6 +3,7 @@ import CODES from '../Helpers/StatusCodes';
 import { environment } from '../environment.development';
 import { showToast } from '../Redux/App/Action';
 import { store } from '../Redux/store';
+import { API_URL } from './Paths';
 const METHOD = {
     GET: 'get',
     POST: 'post',
@@ -22,19 +23,21 @@ class Api {
     getAuthenticationInfo() {
         if (localStorage.getItem('isLoggedIn')) {
             this.isLoggedIn = true;
-            this.accessToken = localStorage.getItem('accessToken');
+            this.accessToken = localStorage.getItem('appToken');
         }
     }
 
     // URL FOR API
     // REFER SAMPLE JSON AT BOTTOM FOR DATA VALUES
+
     get(url, data) {
         return new Promise((resolve, reject) => {
-            this.api(METHOD.GET, url, data)
+            this.api(METHOD.GET, url , data)
                 .then((response) => {
                     resolve(response);
                 })
                 .catch((error) => {
+                    console.log("errorrr", error)
                     reject(error);
                 });
         });
@@ -173,12 +176,15 @@ class Api {
 
     setHeaders(data) {
         const { Auth } = store.getState();
+        this.accessToken = localStorage.getItem('appToken');
         let headers = {};
         headers['accept-language'] = Auth.lang || 'en';
         headers['Content-Type'] = 'application/json';
         headers['test_allow_cross_origin '] = 'true';
         headers["Access-Control-Allow-Origin"] = 'true';
-        headers["Access-Control-Allow-Origin"] = "https://indygo-beta.azurewebsites.net"
+        headers["Access-Control-Allow-Origin"] = "https://indygo-beta.azurewebsites.net";
+        headers['Authorization'] = `Bearer ${this.accessToken}`;
+
 
 
         if (data) {
@@ -196,7 +202,6 @@ class Api {
         }
 
         if (this.isLoggedIn) {
-            //headers['AccessToken'] = this.accessToken;
             headers['Authorization'] = `Bearer ${this.accessToken}`;
         }
 
